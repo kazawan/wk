@@ -2,7 +2,6 @@
 
 import os
 import sys
-import re
 
 filesDocument = ""
 is_overWrite = 0
