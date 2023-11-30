@@ -6,7 +6,7 @@
 
 		listen 8080 ssl ;
 		listen [::]:8080 ssl ;
-		server_name 175.178.245.87;
+		server_name [YOUR DOMAIN];
 		root /home/ubuntu/wk/;
 		index index.html;
 		ssl_certificate		/home/sshkey/ssl.crt;
@@ -25,7 +25,7 @@
 		listen 80;
 		server_name _;
 		location /doc {
-			return 301 https://175.178.245.88:8080;
+			return 301 https://[YOUR DOMAIN]:8080;
 
 		}
 	}
