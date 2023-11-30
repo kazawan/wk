@@ -6,7 +6,7 @@
 
 		listen 8080 ssl ;
 		listen [::]:8080 ssl ;
-		server_name 175.178.245.88;
+		server_name 175.178.245.87;
 		root /home/ubuntu/wk/;
 		index index.html;
 		ssl_certificate		/home/sshkey/ssl.crt;
