@@ -1,6 +1,6 @@
 # :fu:NGINX 重定向
 
-## https ssl配置
+## :rocket: https ssl配置
 ```sh
 	server{
 
@@ -14,7 +14,7 @@
 	}
 ```
 
-## http 配置
+## :rainbow:http 配置
 
 ?> 未学会同一个端口重定向,先使用80端口带url执行
 
