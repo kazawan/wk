@@ -9,6 +9,7 @@
 注意：PPA 不支持 Ubuntu 22.10。您可以按照底部链接从源码压缩包构建它。
 !> :warning:有的系统会提示缺少命令（command not found）
 需要先安装软体包
+[修復 Ubuntu 和 Debian 上的「add-apt-repository 指令找不到」錯誤](https://itsfoss.com/add-apt-repository-command-not-found/)
 ```sh
 sudo apt-get install software-properties-common
 ```
