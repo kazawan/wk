@@ -7,6 +7,12 @@
 对于Ubuntu 22.04，Ubuntu20.04，Ubuntu 18.04 及其衍生版本，如 Linux Mint，有一个流行的 Deadsnakes PPA 维护Python 3.11以及其他Python版本的软件包。
 
 注意：PPA 不支持 Ubuntu 22.10。您可以按照底部链接从源码压缩包构建它。
+!> :warning:有的系统会提示缺少命令（command not found）
+需要先安装软体包
+```sh
+sudo apt-get install software-properties-common
+```
+
 ```sh
 sudo add-apt-repository ppa:deadsnakes/ppa
 ```
