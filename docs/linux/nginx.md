@@ -23,7 +23,7 @@ sudo systemctl status nginx
      Active: active (running) since Sat 2020-05-02 20:25:43 UTC; 13s ago
 ...
 ```
-## 3.配置防火墙
+## 3.配置防火墙(疼讯云,阿里云有外部防火墙)
 ```sh
 sudo ufw allow 'Nginx Full'
 ```
