@@ -48,6 +48,13 @@ npm install --save-dev @nuxtjs/tailwindcss
 }
 ```
 
+### 初始化tailwindcss 
+```sh
+npx tailwindcss init
+```
+生成了tailwind.config.ts
+现在可以有代码提示了
+
 ---
 ## :rocket:Nuxt 路由
 [🌐Nuxt Routing](https://nuxt.com/docs/getting-started/routing)
