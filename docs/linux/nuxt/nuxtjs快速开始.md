@@ -62,8 +62,38 @@ npm install --save-dev @nuxtjs/tailwindcss
 ---| posts/
 -----| [id].vue
 ```
+### 🗄️制作顶bar 使用`NuxtLink` 连接View页
+```vue
+<template>
+  <div class=" container mx-auto border-b-2">
+  <p class=" text-blue-500 text-4xl ">KAZAWAN</p>
+  <p>
+    <span>
+      <NuxtLink to="/">HOME</NuxtLink>
+    </span> | 
+    <span>
+      <NuxtLink to="/about">ABOUT</NuxtLink>
+    </span> |
+  </p>
+  </div>
+</template>
+```
+### 🏡首页添加 `NuxtPage`标签
+```vue
 
-未完...
+<template>
+  <topbar />
+  <div class=" container mx-auto">
+    <NuxtPage class="h-{980px} flex justify-center items-center" />
+  </div>
+  <LayoutPageFooter />
+</template>
+```
+
+现在只要点击`topbar`上的连接就可以跳转到要去的页面了
+
+
+### 
 
 ---
 ## ✈️Prisma 使用SQLite
