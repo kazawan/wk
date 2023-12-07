@@ -55,6 +55,19 @@ npx tailwindcss init
 生成了tailwind.config.ts
 现在可以有代码提示了
 
+### tailwind.css 生成
+生成`./assets/css/tailwind.css`
+tailwind.css
+```css
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities;
+```
+在`nuxt.config.ts`中添加
+```ts
+css: ['@/assets/css/tailwind.css']
+```
+
 ---
 ## :rocket:Nuxt 路由
 [🌐Nuxt Routing](https://nuxt.com/docs/getting-started/routing)
