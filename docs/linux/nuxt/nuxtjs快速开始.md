@@ -63,10 +63,38 @@ tailwind.css
 @tailwind components; 
 @tailwind utilities;
 ```
-在`nuxt.config.ts`中添加
+在`nuxt.config.ts`中添加 
 ```ts
 css: ['@/assets/css/tailwind.css']
 ```
+或者在添加
+```js
+tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+  },
+```
+
+### prettier格式化(非必要)
+
+安装
+`npm install -D prettier-plugin-tailwindcss`
+
+在根目录生成`.prettierrc.cjs`
+```js
+module.exports = {
+  plugins: [
+    'prettier-plugin-tailwindcss'
+  ],
+  printWidth: 100,          // 每行文字数量达 100 字元就换到新的一行
+  semi: false,              // 每个语句的结尾不需要分号
+  singleQuote: true,        // 字串使用单引号，而不是双引号
+  trailingComma: 'none'     // 如 Object、Array 内的元素不需要尾随逗号
+}
+````
+
+
+
 
 ---
 ## :rocket:Nuxt 路由
