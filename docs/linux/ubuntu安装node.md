@@ -1,5 +1,10 @@
 # nodejs npm install
 
+## 腾讯云ubuntu22.04 安装node 方法
+
+[NodeSource Node.js Binary Distributions](https://github.com/nodesource/distributions?tab=readme-ov-file#ubuntu-versions)
+
+
 ## apt 添加node仓库源
 ```sh
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
@@ -61,3 +66,4 @@ echo 'export PATH=$NODE_HOME:$PATH' >> ~/.bashrc
 npm config set registry https://registry.npm.taobao.org
 source ~/.bashrc
 ```
+
