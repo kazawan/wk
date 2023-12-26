@@ -104,7 +104,7 @@ datasource db {
 ```sh
 npx prisma init  --url mysql://[数据库用户名]:[数据密码]@[SERVER..IP]:[端口:默认3306]/[服务器生成的表]
 ```
-
+---
 ### 🧪生成表
 ```js
 model user {
@@ -117,7 +117,7 @@ push!
 npx prisma db push
 ```
 
-
+---
 ### 🧲拉取schema
 
 > 建议先在服务器创建好数据库 ☢️建议使用1panel
@@ -125,12 +125,28 @@ npx prisma db push
 //如何已经有表
 npx prisma db pull
 ```
-
+---
 ### 🛰️生成客户端
 
 ```sh
 npx prisma generate
 ```
+
+---
+## 🧠Prisma Client
+---
+### ☄️引入
+```js
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
+```
+
+### 📡CRUD
+
+懒狗看文档吧
+[ 🔎 Prisma CRUD 增删改查](https://prisma.yoga/concepts/components/prisma-client/crud)
+
+
 
 
 
