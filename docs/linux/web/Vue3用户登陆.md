@@ -105,3 +105,47 @@ router.beforeEach((to, from, next) => {
   }
 });
 ```
+
+
+### 后端prisma 配置获取用户信息验证登陆
+
+#### `db.js`
+配置sqlite
+```js
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
+
+module.exports = prisma;
+```
+
+#### `findUser.js`
+Prisma 查找用户
+```js
+const prisma = require("./db");
+/**
+ *
+ * @param {用户名} username
+ * @param {密码} password
+ * @description 通过用户名和密码查找用户
+ * @returns
+ */
+async function findUser(username, password) {
+  const user = await prisma.user.findFirst({
+    where: {
+      name: username,
+    },
+  });
+
+  if (user.password === password) {
+    //虚假的token
+    user.token =
+      username + "tokenStr123445566123234253453453242jsdjsdfsdlsdjlfjs";
+    console.log(user);
+    return user;
+  } else {
+    return;
+  }
+}
+
+module.exports = findUser;
+```
