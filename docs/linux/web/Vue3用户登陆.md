@@ -2,13 +2,14 @@
 
 ## 客户端配置
 
-* [pinia 配置 Auth.js(登陆配置)](#authjs)
-* [pinia 配置 User.js(用户配置)](#userjs)
-* [router 路由卫士(before to form next) 中间件](#router路由卫士)
-
+- [pinia 配置 Auth.js(登陆配置)](#authjs)
+- [pinia 配置 User.js(用户配置)](#userjs)
+- [router 路由卫士(before to form next) 中间件](#router路由卫士)
 
 ### Pinia 配置
+
 #### `Auth.js`
+
 ```js
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
@@ -58,6 +59,7 @@ export const useAuth = defineStore("auth", () => {
 ```
 
 #### `User.js`
+
 ```js
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
@@ -75,10 +77,11 @@ export const useUser = defineStore("user", () => {
 });
 ```
 
-### router路由卫士
-`~/src/router/index.js/`
-```js
+### router 路由卫士
 
+`~/src/router/index.js/`
+
+```js
 //在export 前添加
 router.beforeEach((to, from, next) => {
   const isLogin = JSON.parse(localStorage.getItem("user")) ? true : false;
@@ -106,11 +109,12 @@ router.beforeEach((to, from, next) => {
 });
 ```
 
-
-### 后端prisma 配置获取用户信息验证登陆
+### 后端 prisma 配置获取用户信息验证登陆
 
 #### `db.js`
-配置sqlite
+
+配置 sqlite
+
 ```js
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -119,7 +123,9 @@ module.exports = prisma;
 ```
 
 #### `findUser.js`
+
 Prisma 查找用户
+
 ```js
 const prisma = require("./db");
 /**
@@ -149,3 +155,63 @@ async function findUser(username, password) {
 
 module.exports = findUser;
 ```
+
+### 后端 jwt 配置
+
+#### 安装
+
+```sh
+ npm install jsonwebtoken express-jwt
+```
+
+#### 配置express-jwt
+```js
+const { expressjwt } = require("express-jwt");
+
+app.use(
+  expressjwt({ secret: key, algorithms: ["HS256"] }).unless({
+    path: ["/login", "/register"],
+  })
+);
+```
+
+#### `jwt.js`
+
+```js
+const jwt = require("jsonwebtoken");
+
+const key = "kazawan";
+
+module.exports = {
+  jwt,
+  key,
+};
+```
+
+
+#### 中间件验证是否登陆
+```js
+app.use((err, req, res, next) => {
+  console.log(req.headers.authorization);
+  if (err.name === "UnauthorizedError") {
+    return res.send({
+      code: 401,
+      msg: "无效的token",
+    });
+  }
+  res.send({
+    code: 500,
+    msg: "未知的错误",
+  });
+  next();
+});
+```
+
+
+#### 创建token方法  
+```js
+const token = jwt.sign({ username }, key, { expiresIn: "1h" });
+```
+
+
+
